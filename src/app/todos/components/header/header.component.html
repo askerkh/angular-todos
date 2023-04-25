@@ -1,0 +1,11 @@
+<div class="flex h-max w-full gap-1">
+  <input
+    type="text"
+    class="h-max w-full rounded-md border border-gray-300 px-4 py-1 text-base text-gray-600 shadow-md outline-none transition-all duration-200 placeholder:text-gray-200 focus:border-gray-400 dark:bg-zinc-800 dark:text-white dark:placeholder:text-gray-500 md:text-3xl"
+    [(ngModel)]="inputText"
+    placeholder="What needs to be done?"
+    autofocus
+    (keydown.enter)="addTodo()"
+  />
+  <app-theme-switcher></app-theme-switcher>
+</div>

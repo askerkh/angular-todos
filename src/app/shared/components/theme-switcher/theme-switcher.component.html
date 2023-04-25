@@ -1,0 +1,7 @@
+<button
+  type="button"
+  class="flex h-full items-center justify-center rounded-md border border-gray-300 bg-white p-1 text-sm shadow-md transition-all duration-200 hover:bg-gray-100 dark:bg-zinc-800 dark:text-white md:text-xl"
+  (click)="theme$.next(theme$.getValue() === 'dark' ? 'light' : 'dark')"
+>
+  {{ theme$.getValue() }}
+</button>
