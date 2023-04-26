@@ -1,0 +1,39 @@
+<div
+  class="h-max w-full rounded-md border border-gray-300 bg-white px-2 py-1 shadow-md dark:border-zinc-700 dark:bg-zinc-800"
+>
+  <ul class="flex w-full flex-col gap-2 py-4">
+    <li
+      *ngFor="let todo of todosService.todos$.getValue() | todosFilter : filter"
+      class="flex h-max w-full items-center justify-between rounded-md border border-gray-200 bg-white px-4 py-2 dark:border-zinc-700 dark:bg-zinc-800"
+    >
+      <input
+        type="checkbox"
+        [ngModel]="todo.completed"
+        (ngModelChange)="todosService.toggleTodo(todo.id)"
+        class="h-4 w-4 appearance-none rounded-[100%] border border-green-500 transition-all duration-300 checked:bg-green-400 md:h-8 md:w-8"
+      />
+      <h2
+        (click)="todosService.toggleTodo(todo.id)"
+        class="h-max w-[70%] select-none break-words text-center text-base md:text-3xl"
+        [ngClass]="{
+          'text-gray-500 line-through': todo.completed,
+          'text-gray-800 dark:text-white': !todo.completed
+        }"
+      >
+        {{ todo.title }}
+      </h2>
+
+      <button
+        class="flex items-center justify-center rounded-md border border-gray-300 px-4 text-black shadow-md dark:text-white md:text-3xl"
+        type="button"
+        (click)="todosService.delTodo(todo.id)"
+      >
+        &times;
+      </button>
+    </li>
+  </ul>
+  <app-todos-footer
+    (changeFilter)="filter = $event"
+    [filter]="filter"
+  ></app-todos-footer>
+</div>
