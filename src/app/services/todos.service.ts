@@ -16,6 +16,8 @@ export class TodosService {
   ])
 
   addTodo(title: string) {
+    if(!title.trim()) return
+
     const newTodo: ITodo = {
       id: `${Date.now()},${title}`,
       title,
