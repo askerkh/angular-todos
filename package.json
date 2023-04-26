@@ -7,7 +7,10 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "gh-build": "ng build --configuration production --base-href 'https://askerkh.github.io/angular-todos'",
+    "gh-deploy": "npx angular-cli-ghpages --dir=dist/todo-app",
+    "deploy": "npm run gh-build && npm run gh-deploy"
   },
   "private": true,
   "dependencies": {
